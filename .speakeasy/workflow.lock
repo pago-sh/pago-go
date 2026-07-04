@@ -1,0 +1,43 @@
+speakeasyVersion: 1.761.1
+sources:
+    Pago-OAS:
+        sourceNamespace: pago-oas
+        sourceRevisionDigest: sha256:e4cf14ef1457c450131e2b13ae08708a300d8b30c87c64a913a02d02e2bf2e99
+        sourceBlobDigest: sha256:d5e55f4c7f96616a3eb731e9d7ba473485b86b6ef897b2fd5cacff504a1b21e9
+        tags:
+            - latest
+            - 0.1.0
+targets:
+    pago:
+        source: Pago-OAS
+        sourceNamespace: pago-oas
+        sourceRevisionDigest: sha256:e4cf14ef1457c450131e2b13ae08708a300d8b30c87c64a913a02d02e2bf2e99
+        sourceBlobDigest: sha256:d5e55f4c7f96616a3eb731e9d7ba473485b86b6ef897b2fd5cacff504a1b21e9
+        codeSamplesNamespace: pago-oas-code-samples-go
+        codeSamplesRevisionDigest: sha256:fa78eb9192721b7fcedaffe1039b7533aebd64db8bc7e653e713a04d9989a44f
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Pago-OAS:
+            inputs:
+                - location: https://api.pago.sh/openapi.json
+            overlays:
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/security.yml
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/type_parameter.yml
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/read_only.yml
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/event_discriminator.yml
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/timezone_enum.yml
+                - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/event_metadata.yml
+            registry:
+                location: registry.speakeasyapi.dev/pago/pago/pago-oas
+    targets:
+        pago:
+            target: go
+            source: Pago-OAS
+            codeSamples:
+                output: codeSamples.yaml
+                registry:
+                    location: registry.speakeasyapi.dev/pago/pago/pago-oas-code-samples-go
+                labelOverride:
+                    fixedValue: Go (SDK)

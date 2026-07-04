@@ -1,0 +1,9 @@
+# Oauth2UserinfoResponse
+
+
+## Fields
+
+| Field                                                                                                               | Type                                                                                                                | Required                                                                                                            | Description                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                                  | :heavy_check_mark:                                                                                                  | N/A                                                                                                                 |
+| `ResponseOauth2Userinfo`                                                                                            | [*operations.Oauth2UserinfoResponseOauth2Userinfo](../../models/operations/oauth2userinforesponseoauth2userinfo.md) | :heavy_minus_sign:                                                                                                  | Successful Response                                                                                                 |

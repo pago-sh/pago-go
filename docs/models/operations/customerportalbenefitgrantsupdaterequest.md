@@ -1,0 +1,9 @@
+# CustomerPortalBenefitGrantsUpdateRequest
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ID`                                                                                           | `string`                                                                                       | :heavy_check_mark:                                                                             | The benefit grant ID.                                                                          |
+| `CustomerBenefitGrantUpdate`                                                                   | [components.CustomerBenefitGrantUpdate](../../models/components/customerbenefitgrantupdate.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |

@@ -1,0 +1,9 @@
+# CustomerPortalSubscriptionsListResponse
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                  | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                          | :heavy_check_mark:                                                                                          | N/A                                                                                                         |
+| `ListResourceCustomerSubscription`                                                                          | [*components.ListResourceCustomerSubscription](../../models/components/listresourcecustomersubscription.md) | :heavy_minus_sign:                                                                                          | Successful Response                                                                                         |

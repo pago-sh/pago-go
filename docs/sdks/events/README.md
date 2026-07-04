@@ -1,0 +1,269 @@
+# Events
+
+## Overview
+
+### Available Operations
+
+* [List](#list) - List Events
+* [ListNames](#listnames) - List Event Names
+* [Get](#get) - Get Event
+* [Ingest](#ingest) - Ingest Events
+
+## List
+
+List events.
+
+**Scopes**: `events:read` `events:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="events:list" method="get" path="/v1/events/" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	pagogo "github.com/pago-sh/pago-go"
+	"github.com/pago-sh/pago-go/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := pagogo.New(
+        pagogo.WithSecurity(os.Getenv("PAGO_ACCESS_TOKEN")),
+    )
+
+    res, err := s.Events.List(ctx, operations.EventsListRequest{
+        OrganizationID: pagogo.Pointer(operations.CreateEventsListQueryParamOrganizationIDFilterStr(
+            "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        )),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ResponseEventsList != nil {
+        switch res.ResponseEventsList.Type {
+            case operations.EventsListResponseEventsListTypeListResourceEvent:
+                // res.ResponseEventsList.ListResourceEvent is populated
+            case operations.EventsListResponseEventsListTypeListResourceWithCursorPaginationEvent:
+                // res.ResponseEventsList.ListResourceWithCursorPaginationEvent is populated
+        }
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.EventsListRequest](../../models/operations/eventslistrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `opts`                                                                       | [][operations.Option](../../models/operations/option.md)                     | :heavy_minus_sign:                                                           | The options for this request.                                                |
+
+### Response
+
+**[*operations.EventsListResponse](../../models/operations/eventslistresponse.md), error**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| apierrors.HTTPValidationError | 422                           | application/json              |
+| apierrors.APIError            | 4XX, 5XX                      | \*/\*                         |
+
+## ListNames
+
+List event names.
+
+**Scopes**: `events:read` `events:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="events:list_names" method="get" path="/v1/events/names" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	pagogo "github.com/pago-sh/pago-go"
+	"github.com/pago-sh/pago-go/models/operations"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := pagogo.New(
+        pagogo.WithSecurity(os.Getenv("PAGO_ACCESS_TOKEN")),
+    )
+
+    res, err := s.Events.ListNames(ctx, operations.EventsListNamesRequest{
+        OrganizationID: pagogo.Pointer(operations.CreateEventsListNamesQueryParamOrganizationIDFilterStr(
+            "1dbfc517-0bbf-4301-9ba8-555ca42b9737",
+        )),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.ListResourceEventName != nil {
+        for {
+            // handle items
+
+            res, err = res.Next()
+
+            if err != nil {
+                // handle error
+            }
+
+            if res == nil {
+                break
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.EventsListNamesRequest](../../models/operations/eventslistnamesrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `opts`                                                                                 | [][operations.Option](../../models/operations/option.md)                               | :heavy_minus_sign:                                                                     | The options for this request.                                                          |
+
+### Response
+
+**[*operations.EventsListNamesResponse](../../models/operations/eventslistnamesresponse.md), error**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| apierrors.HTTPValidationError | 422                           | application/json              |
+| apierrors.APIError            | 4XX, 5XX                      | \*/\*                         |
+
+## Get
+
+Get an event by ID.
+
+**Scopes**: `events:read` `events:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="events:get" method="get" path="/v1/events/{id}" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	pagogo "github.com/pago-sh/pago-go"
+	"log"
+	"github.com/pago-sh/pago-go/models/components"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := pagogo.New(
+        pagogo.WithSecurity(os.Getenv("PAGO_ACCESS_TOKEN")),
+    )
+
+    res, err := s.Events.Get(ctx, "<value>")
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.Event != nil {
+        switch res.Event.Type {
+            case components.EventUnionTypeSystemEvent:
+                // res.Event.SystemEvent is populated
+            case components.EventUnionTypeUserEvent:
+                // res.Event.UserEvent is populated
+        }
+
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `id`                                                     | `string`                                                 | :heavy_check_mark:                                       | The event ID.                                            |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.EventsGetResponse](../../models/operations/eventsgetresponse.md), error**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| apierrors.ResourceNotFound    | 404                           | application/json              |
+| apierrors.HTTPValidationError | 422                           | application/json              |
+| apierrors.APIError            | 4XX, 5XX                      | \*/\*                         |
+
+## Ingest
+
+Ingest batch of events.
+
+**Scopes**: `events:write`
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="events:ingest" method="post" path="/v1/events/ingest" -->
+```go
+package main
+
+import(
+	"context"
+	"os"
+	pagogo "github.com/pago-sh/pago-go"
+	"github.com/pago-sh/pago-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := pagogo.New(
+        pagogo.WithSecurity(os.Getenv("PAGO_ACCESS_TOKEN")),
+    )
+
+    res, err := s.Events.Ingest(ctx, components.EventsIngest{
+        Events: []components.Events{},
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.EventsIngestResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ctx`                                                              | [context.Context](https://pkg.go.dev/context#Context)              | :heavy_check_mark:                                                 | The context to use for the request.                                |
+| `request`                                                          | [components.EventsIngest](../../models/components/eventsingest.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
+| `opts`                                                             | [][operations.Option](../../models/operations/option.md)           | :heavy_minus_sign:                                                 | The options for this request.                                      |
+
+### Response
+
+**[*operations.EventsIngestResponse](../../models/operations/eventsingestresponse.md), error**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| apierrors.HTTPValidationError | 422                           | application/json              |
+| apierrors.APIError            | 4XX, 5XX                      | \*/\*                         |

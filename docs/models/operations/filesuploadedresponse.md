@@ -1,0 +1,9 @@
+# FilesUploadedResponse
+
+
+## Fields
+
+| Field                                                                                                           | Type                                                                                                            | Required                                                                                                        | Description                                                                                                     |
+| --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                              | :heavy_check_mark:                                                                                              | N/A                                                                                                             |
+| `ResponseFilesUploaded`                                                                                         | [*operations.FilesUploadedResponseFilesUploaded](../../models/operations/filesuploadedresponsefilesuploaded.md) | :heavy_minus_sign:                                                                                              | File upload completed.                                                                                          |

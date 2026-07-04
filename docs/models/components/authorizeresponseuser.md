@@ -1,0 +1,12 @@
+# AuthorizeResponseUser
+
+
+## Fields
+
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `Client`                                                                       | [components.OAuth2ClientPublic](../../models/components/oauth2clientpublic.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `SubType`                                                                      | `string`                                                                       | :heavy_check_mark:                                                             | N/A                                                                            |
+| `Sub`                                                                          | [*components.AuthorizeUser](../../models/components/authorizeuser.md)          | :heavy_check_mark:                                                             | N/A                                                                            |
+| `Scopes`                                                                       | [][components.Scope](../../models/components/scope.md)                         | :heavy_check_mark:                                                             | N/A                                                                            |
+| `ScopeDisplayNames`                                                            | map[string]`string`                                                            | :heavy_minus_sign:                                                             | N/A                                                                            |

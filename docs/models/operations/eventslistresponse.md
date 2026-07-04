@@ -1,0 +1,9 @@
+# EventsListResponse
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                                  | :heavy_check_mark:                                                                                  | N/A                                                                                                 |
+| `ResponseEventsList`                                                                                | [*operations.EventsListResponseEventsList](../../models/operations/eventslistresponseeventslist.md) | :heavy_minus_sign:                                                                                  | Successful Response                                                                                 |

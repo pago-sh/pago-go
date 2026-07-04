@@ -1,0 +1,25 @@
+workflowVersion: 1.0.0
+speakeasyVersion: latest
+sources:
+    Pago-OAS:
+        inputs:
+            - location: https://api.pago.sh/openapi.json
+        overlays:
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/security.yml
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/type_parameter.yml
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/read_only.yml
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/event_discriminator.yml
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/timezone_enum.yml
+            - location: https://raw.githubusercontent.com/pago-sh/pago/main/sdk/overlays/event_metadata.yml
+        registry:
+            location: registry.speakeasyapi.dev/pago/pago/pago-oas
+targets:
+    pago:
+        target: go
+        source: Pago-OAS
+        codeSamples:
+            output: codeSamples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/pago/pago/pago-oas-code-samples-go
+            labelOverride:
+                fixedValue: Go (SDK)
