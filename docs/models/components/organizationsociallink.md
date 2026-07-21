@@ -1,9 +1,0 @@
-# OrganizationSocialLink
-
-
-## Fields
-
-| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `Platform`                                                                                       | [components.OrganizationSocialPlatforms](../../models/components/organizationsocialplatforms.md) | :heavy_check_mark:                                                                               | N/A                                                                                              |
-| `URL`                                                                                            | `string`                                                                                         | :heavy_check_mark:                                                                               | The URL to the organization profile                                                              |

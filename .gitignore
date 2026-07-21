@@ -1,8 +1,11 @@
-.env
-.env.local
-.DS_Store
-**/.speakeasy/temp/
-**/.speakeasy/logs/
-.speakeasy/temp/
-.speakeasy/reports
-# .gitignore
+# Binaries and build output
+*.exe
+*.test
+*.out
+
+# Go workspace
+go.work
+go.work.sum
+
+# Coverage
+coverage.txt

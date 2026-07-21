@@ -1,9 +1,0 @@
-# CustomerSubscriptionUpdateSeats
-
-
-## Fields
-
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `Seats`                                                                                                    | `int64`                                                                                                    | :heavy_check_mark:                                                                                         | Update the number of seats for this subscription.                                                          |
-| `ProrationBehavior`                                                                                        | [*components.SubscriptionProrationBehavior](../../models/components/subscriptionprorationbehavior.md)      | :heavy_minus_sign:                                                                                         | Determine how to handle the proration billing. If not provided, will use the default organization setting. |

@@ -1,9 +1,0 @@
-# EventTypeUpdate
-
-
-## Fields
-
-| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `Label`                                                                                             | `string`                                                                                            | :heavy_check_mark:                                                                                  | The label for the event type.                                                                       |
-| `LabelPropertySelector`                                                                             | `*string`                                                                                           | :heavy_minus_sign:                                                                                  | Property path to extract dynamic label from event metadata (e.g., 'subject' or 'metadata.subject'). |
